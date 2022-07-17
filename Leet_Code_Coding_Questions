@@ -1,1 +1,48 @@
 
+import java.util.Scanner;
+
+public class TwoSum {
+
+    static  int[] twoSum(int[] nums, int target) {
+            int n=nums.length;
+            for(int i=0;i<n-1;i++)
+            {
+                for(int j=i+1;j<n;j++)
+                {
+                    if(nums[i]+nums[j]==target)
+                    {
+                        return new int[]{i,j};
+                    }
+                }
+            }
+            return new int[]{};
+    }
+        public static void main(String[] args)
+        {
+            //Scanner sc =new Scanner(System.in);
+           // TwoSum obj=new TwoSum();
+            // System.out.println("Enter the size of an array");
+            // int n = sc.nextInt();
+            // System.out.println("Enter the elements of an array");
+          
+            int nums[]={1,7,9,2,4};
+          
+           // System.out.println("Enter the target value of an array");
+            int target = 13;
+            for(int x:twoSum(nums,target))
+            {
+                System.out.print(x+" ");
+            }
+        }
+    }
+
+
+
+
+
+        
+    
+
+
+
+
