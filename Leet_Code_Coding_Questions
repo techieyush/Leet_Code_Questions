@@ -1,3 +1,4 @@
+//Question1
 
 import java.util.Scanner;
 
@@ -36,6 +37,46 @@ public class TwoSum {
         }
     }
 
+//Question2
+import java.util.Scanner;
+public class search_Insert_Position {
+    
+        public static  int searchInsert(int[] nums, int target) {
+        if(nums.length>0)
+         {     
+             for(int i=0;i<nums.length;i++)
+             {
+                if(nums[i]==target)
+                    return i;
+                else if(nums[i]>target)
+                    return i;
+                // else if(nums[i]<target)
+                //     return i+1;
+               }
+               return nums.length ;
+         }
+        else
+        {
+            return -1;
+        }
+    }
+        public static void main(String[] args)
+        {
+            Scanner sc =new Scanner(System.in);
+            int n= sc.nextInt();
+            int nums[]=new int[n];
+            for(int i=0;i<n;i++)
+            {
+                nums[i]=sc.nextInt();
+            }
+            int target=sc.nextInt();
+          System.out.print(searchInsert(nums,target));
+        }
+           
+        }
+      
+    
+  
 
 
 
