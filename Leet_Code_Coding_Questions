@@ -111,6 +111,41 @@ public class RemoveElement {
     }
 }
     
+    //Question-4
+    
+    import java.util.Scanner;
+
+public class PallindromeNumber {
+
+    public static boolean isPallindrome(int num)   //121
+    {
+        if( num < 0 || ( num == 0 && num%10 == 0)) 
+        {
+            return false;
+        }
+           
+        int result = 0 ;
+        int temp=num;
+        while(num>0)
+        {
+            int lastnum = temp%10;
+            result=result*10 + lastnum;
+            temp=temp/10;
+        }
+         return (num==result);
+
+    }
+    public static void main(String[] args)
+    {
+        Scanner sc= new Scanner(System.in);
+        int num=sc.nextInt();
+         System.out.print(isPallindrome(num));
+
+
+    }
+    
+}
+
 
   
 
