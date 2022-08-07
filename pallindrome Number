@@ -1,1 +1,37 @@
 
+import java.util.Scanner;
+
+public class PallindromeNumber {
+
+    public static boolean isPallindrome(int num)   //121
+    {
+        int result = 0 ;
+        int temp=num;
+        if(num>=0)
+        { 
+            while(temp!=0)
+                {
+                    int lastnum = temp%10;
+                    result=result*10 + lastnum;
+                    temp=temp/10;
+                }
+
+        }
+        if(result==num)
+        {
+            return true;
+        }
+      
+         return false;
+
+    }
+    public static void main(String[] args)
+    {
+        Scanner sc= new Scanner(System.in);
+        int num=sc.nextInt();
+         System.out.print(isPallindrome(num));
+
+
+    }
+    
+}
