@@ -1,1 +1,37 @@
 
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Valid_Paranthesis {
+
+    public static boolean valid_Paran(String str)
+    {
+        Stack<Character>Vp = new Stack<Character>();
+        for(char c : str.toCharArray())
+        {
+          if(c=='('){
+            Vp.push(')');
+          }  
+          else if(c=='{'){
+            Vp.push('}');
+          }
+          else if(c=='[')
+          {
+            Vp.push(']');
+          }
+          else if(Vp.isEmpty() || Vp.pop()!=c)
+          {
+            return false;
+          }
+        }
+    return Vp.isEmpty();
+    }
+    public static void main(String[]args)
+    {
+        Scanner sc = new Scanner(System.in);
+        String str=sc.next;
+        System.out.println(valid_Paran(str));
+
+    }
+    
+}
