@@ -1,1 +1,23 @@
 
+import java.util.Scanner;
+
+public class Implement_strStr {
+
+    public static int strStr(String str1,String str2)
+    {
+        if(!str1.contains(str2))
+        {
+            return -1;
+        }
+        return str1.indexOf(str2);
+    }
+
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        String str1= "hellom";
+        String str2= "lo";
+        System.out.println(strStr(str1, str2));
+    }
+    
+}
