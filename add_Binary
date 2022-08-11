@@ -1,1 +1,42 @@
 
+public class add__Binary {
+
+    public static String aBin(String a,String b)
+    {
+        StringBuilder aBin =new StringBuilder();
+        int i= a.length()-1;
+        int j= b.length()-1;
+        int carry=0;
+        while(i>=0 || j>0)
+        {
+            int sum = carry;
+            if(i>=0)
+            {
+                sum+=a.charAt(i)-'0';
+            }
+            if(j>=0)
+            {
+                sum+=b.charAt(j)-'0';
+            }
+            i--;
+            j--;
+            aBin.append(sum%2);
+            carry=sum/2;
+        }
+        if(carry!=0)
+        {
+            aBin.append(carry);
+        }
+        return aBin.reverse().toString();
+    }
+
+
+
+    public static void main(String[]args)
+{
+    String str1= "10";
+    String str2="1";
+    System.out.println(aBin(str1, str2));
+}
+    
+}
