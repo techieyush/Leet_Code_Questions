@@ -1,1 +1,54 @@
+import java.util.Scanner;
+
+public class Longest_common_Prefix {
+
+    public static String longestCommonPrefix(String[] str)
+    {
+        int len=str.length;
+        int min=0 ;
+        int cmnChar=0;
+        if(len==1)
+        {
+            return str[0];
+        }
+        String first=str[0];
+        for(int i=0;i<first.length();i++)
+        {
+            cmnChar=0;
+            for(int j=1;j<len;j++)
+            {
+                if(i<str[j].length() && first.charAt(i)==str[j].charAt(i))
+                {
+                    cmnChar++;
+                }
+                else{
+                    break;
+                }
+            }
+                if(cmnChar==len-1)
+                {
+                    min++;
+                }
+                else{
+                    break;
+                }
+            }
+
+                return first.substring(0, min);
+            }
+        
+
+
+
+
+    
+    public static void main(String []args)
+    {
+        Scanner sc =new Scanner(System.in);
+        String[] str = new String[]{"Flower", "Folwer", "Flowing"};
+        System.out.println(longestCommonPrefix(str));
+
+    }
+    
+}
 
