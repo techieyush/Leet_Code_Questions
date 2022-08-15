@@ -1,1 +1,33 @@
+import java.util.Scanner;
+
+public class Anagram_String {
+
+    public static boolean anaGram(String str,String strSec)
+    {
+        if(str.length()!=strSec.length())
+        {
+            return false;
+        }
+        int anagramString[]=new int[26];
+        for(int i=0;i<str.length();i++){
+            anagramString[str.charAt(i)-'a']++;
+        }
+        for(int i=0;i<strSec.length();i++)
+        {
+            if(--anagramString[strSec.charAt(i)-'a']<0)
+            {
+                return false;
+            }
+        }
+        return true;
+
+    }
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        String str=sc.nextLine();
+        String strSec=sc.nextLine();
+        System.out.println(anaGram(str, strSec));
+    }
+}
+
 
