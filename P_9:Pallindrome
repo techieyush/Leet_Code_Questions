@@ -1,1 +1,30 @@
 
+import java.util.Scanner;
+
+public class PallindromeNumber {
+
+    public static boolean isPallindrome(int n)
+    {
+        if(n<0 || (n!=0 && n%10==0))
+        {
+            return false;
+        }
+        int reverseNum=0;
+        while(n>reverseNum)
+        {
+            int pop=n%10;
+            reverseNum=reverseNum*10+pop;
+            n=n/10;
+        }
+        return n==reverseNum || n==reverseNum/10;
+	
+        
+    }
+    public static void main(String[]args)
+    {
+        Scanner sc =new Scanner(System.in);
+        int num=sc.nextInt();
+        System.out.println(isPallindrome(num));
+    }
+    
+}
