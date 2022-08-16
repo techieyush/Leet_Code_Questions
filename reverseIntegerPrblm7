@@ -1,1 +1,62 @@
 
+import java.util.Scanner;
+
+public class ReverseIntegerMedSol2 {
+
+    public static int reverseNum(int n)
+    {
+        boolean isNegative=n<0;
+        if(isNegative)
+        {
+            n=n*-1;
+        }
+        long reverse=0;
+        int lastDigit;
+        while(n>0)
+        {
+            lastDigit=n%10;
+            reverse=reverse*10+lastDigit;
+            n=n/10;
+        }
+        return isNegative?(int)reverse*-1:(int)reverse;
+    }
+    public static void main(String[]args)
+    {
+        Scanner sc=new Scanner(System.in);
+        int num=sc.nextInt();
+        System.out.println(reverseNum(num));
+    }
+    
+}
+//Solution 2
+import java.util.Scanner;
+
+// for ex:
+// input:123
+// O/p:321
+// I/P;-123
+// O/p;-321
+
+public class ReverseInetegerMed {
+
+    public static int reverse(int n)
+    {
+        long reverse=0;
+        while(n!=0)
+        {
+            reverse=reverse*10+(n%10);
+            n=n/10;
+        }
+        if((reverse>Integer.MAX_VALUE)|| (reverse<Integer.MIN_VALUE))
+        {
+            return 0;
+        }
+        return (int)reverse;
+    }
+    public static void main(String[]args)
+    {
+        Scanner sc =new Scanner(System.in);
+        int num=sc.nextInt();
+        System.out.println(reverse( num));
+    }
+}
