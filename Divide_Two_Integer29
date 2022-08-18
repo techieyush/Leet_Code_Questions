@@ -1,1 +1,21 @@
+import java.util.Scanner;
+
+public class Divide_two_IntegerP29 {
+    public static int divide(int dividend, int divisor) {
+        int num=dividend/divisor;
+        if(dividend==Integer.MIN_VALUE&&divisor==-1)
+        {
+            return Integer.MAX_VALUE;
+        }
+        return num;
+    }
+public static void main(String[]args)
+{
+    Scanner sc =new Scanner(System.in);
+    int dividend=sc.nextInt();
+    int divisor=sc.nextInt();
+    System.out.println(divide(dividend, divisor));
+}
+    
+}
 
