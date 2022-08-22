@@ -1,1 +1,39 @@
+import java.util.Scanner;
+
+import javax.xml.validation.Schema;
+
+public class Find_Strainght_line {
+        public static boolean checkStraightLine(int[][] coordinates) {
+            if(coordinates.length==2)
+            {
+                return true;
+            }
+            int dx=(coordinates[1][1]-coordinates[0][1]);
+            int dy=(coordinates[1][0]-coordinates[0][0]);
+            for(int i=2;i<coordinates.length;i++)
+                {
+                 if(dx*(coordinates[i][0]-coordinates[1][0])!=dy*(coordinates[i][1]-coordinates[1][1]))
+                return false;
+                }
+                return true;
+            }
+           public static void  main(String[] args)
+           {
+            Scanner sc =new Scanner(System.in);
+            int n=sc.nextInt();
+            int arr[][]=new int[n][n];
+            for(int i=0;i<n;i++)
+            {
+                for(int j=0;j<n;j++)
+                {
+                    arr[i][j]=sc.nextInt();
+                }
+            }
+            System.out.println(checkStraightLine(arr));
+
+           } 
+            
+        
+    }
+    
 
