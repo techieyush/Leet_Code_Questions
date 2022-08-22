@@ -1,1 +1,38 @@
 
+import java.util.Scanner;
+
+import javax.lang.model.util.ElementScanner14;
+
+public class Perfect_Square {
+
+    public static boolean pSquare(int num)
+    {
+        long low=0;
+        long high=num;
+        while(low<=high)
+        {
+            long mid=low+(high-low)/2;
+            if(mid*mid==num)
+            {
+                return true;
+            }
+            else if(mid*mid<num)
+            {
+                low=mid+1;
+            }
+            else {
+                high=mid-1;
+            }
+           
+        }
+        return false;
+    }
+
+    public static void main(String[]args)
+    {
+        Scanner sc =new Scanner(System.in);
+        int num=sc.nextInt();
+        System.out.println(pSquare(num));
+    }
+    
+}
