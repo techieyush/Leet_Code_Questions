@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Jewels_And_Stones {
+    public static int cmnStrings(String str1,String str2)
+    {
+        int count=0;
+        for(char s1:str1.toCharArray())
+        {
+            for(char s2:str2.toCharArray())
+            {
+                if(s1==s2)
+                {
+                   count++; 
+                }
+            }
+        }
+        return count;
+
+    }
+    public static void main(String[]agrs)
+    {
+        Scanner sc =new Scanner(System.in);
+        String str1=sc.nextLine();
+        String str2=sc.nextLine();
+        System.out.println(cmnStrings(str1,str2));
+    }
+    
+}
