@@ -1,1 +1,41 @@
+import java.util.Scanner;
+
+public class Averege_Salary_Excluding_the_min_and_Max {
+    public static double minSalary(int[]arr)
+    {
+        int minVal=Integer.MAX_VALUE;
+        int maxval=Integer.MIN_VALUE;
+        for(int i=0;i<arr.length;i++)
+        {
+            minVal=Math.min(minVal,arr[i]);
+            maxval=Math.max(maxval,arr[i]);
+        }
+        double sum=0;
+        for(int i=0;i<arr.length;i++)
+        {
+            if(minVal!=arr[i]&&maxval!=arr[i])
+            {
+            sum+=arr[i];
+            }
+        }
+
+
+
+     return sum/(arr.length-2);   
+    }
+    public static void main(String[]args)
+    {
+       
+        Scanner sc = new Scanner(System.in);
+        int n= sc.nextInt();
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
+
+        }
+        System.out.println(minSalary(arr));
+    }
+    
+}
 
