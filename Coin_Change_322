@@ -1,1 +1,38 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Coin_change {
+    public static int find_coin(int arr[],int amount)
+    {
+        int max=amount+1;
+        int dp[]=new int[max];
+        Arrays.fill(dp,max);
+        dp[0]=0;
+        for(int i=0;i<=amount;i++)
+        {
+            for(int j=0;j<arr.length;j++)
+            {
+                if(arr[j]<=i)
+                {
+                    dp[i]=Math.min(dp[i],dp[i-arr[j]]+1);
+                }
+            }
+        }
+        return dp[amount]>amount?-1:dp[amount];
+    }
+    public static void main(String[] args)
+    {
+        Scanner sc =new Scanner(System.in);
+        int n=sc.nextInt();
+        int amount=sc.nextInt();
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+        System.out.println(find_coin(arr,amount));
+        
+    }
+    
+}
 
