@@ -1,1 +1,35 @@
 
+import java.util.Scanner;
+
+public class coinChange2 {
+    public static int coinChange518(int amount,int coins[])
+    {
+        int dp[]=new int[amount+1];
+        dp[0]=1;
+        
+        for(int coin:coins)
+        {
+            for(int i=coin;i<amount+1;i++)
+            {
+                dp[i]+=dp[i-coin];
+
+            }
+        }
+        return dp[amount];
+
+    }
+    public static void main(String[] args)
+    {
+        Scanner sc =new Scanner(System.in);
+       
+        int amount=sc.nextInt();
+        int n=sc.nextInt();
+        int coins[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            coins[i]=sc.nextInt();
+        }
+        System.out.println(coinChange518(amount,coins));
+    }
+    
+}
