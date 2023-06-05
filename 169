@@ -1,0 +1,18 @@
+class Solution {
+    public int majorityElement(int[] nums) {
+        int majority_Element=0;
+        int count=1;
+        int n=nums.length;
+        for(int i=1;i<n;i++)
+        {
+           count+=nums[i]==nums[majority_Element]?1:-1;
+           if(count==0)
+           {
+               majority_Element=++i;
+               count++;
+           }
+        }
+return nums[majority_Element];
+        
+    }
+}
