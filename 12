@@ -1,0 +1,13 @@
+class Solution{
+    public String intToRoman(int num) {
+
+      String onesPlace[]={"","I","II","III","IV","V","VI","VII","VIII","IX"};
+        String tensPlace[]={"","X","XX","XXX","XL","L","LX","LXX","LXXX","XC"};
+        String hundredsPlace[]={"","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"};
+      String thousandsPlace[]={"","M","MM","MMM"};
+
+
+return thousandsPlace[num/1000]+hundredsPlace[(num%1000)/100]+tensPlace[(num%100)/10]+onesPlace[num%10];
+        
+    }
+}
