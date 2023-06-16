@@ -1,0 +1,17 @@
+
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+        int firstIndex=0;
+        int secondIndex=0;
+
+    while(firstIndex<s.length() && secondIndex<t.length())
+    {
+        if(s.charAt(firstIndex)==t.charAt(secondIndex))
+        {
+            firstIndex++;  
+        }
+        secondIndex++;
+    }
+    return firstIndex==s.length();
+}
+}
