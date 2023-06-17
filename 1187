@@ -1,0 +1,58 @@
+
+class Solution {
+
+public int find(int[] nums,int target)
+        {
+            int low=0;
+            int high=nums.length-1;
+            int res=nums.length;
+            while(low<=high)
+            {
+                int mid=low+(high-low)/2;
+                if(nums[mid]>target)
+                {
+                high=mid-1;
+                    res=mid;
+                }
+                else{
+                    low=mid+1;
+                }
+            }
+        return res;
+           }
+
+ public  int helper(int i,int previous,int arr1[],int arr2[],int [][]dp)
+    {
+        if(i>=arr1.length)
+        {
+            return 0;
+        }
+        int index=find(arr2,previous);
+        if(dp[i][index]!=-1)
+        {
+            return dp[i][index];
+        }
+          int minVal=2000;
+        if(index!=arr2.length)
+        {
+            minVal=Math.min(minVal,1+helper(i+1,arr2[index],arr1,arr2,dp));
+        }
+
+        if(arr1[i]>previous)
+        {
+            minVal=Math.min(minVal,helper(i+1,arr1[i],arr1,arr2,dp));
+        }
+        return dp[i][index]=minVal;
+
+    }
+    public int makeArrayIncreasing(int[] arr1, int[] arr2) {
+            Arrays.sort(arr2);
+            int [][]dp=new int[2000][2001];
+            for(int i=0;i<2000;i++)
+            {
+                Arrays.fill(dp[i],-1);
+            }
+        int res=helper(0,Integer.MIN_VALUE,arr1,arr2,dp);
+        return res>=2000?-1:res;
+    }
+}
