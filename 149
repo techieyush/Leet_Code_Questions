@@ -1,0 +1,35 @@
+
+class Solution {
+    public int maxPoints(int[][] points) {
+       int n=points.length;
+       if(n<=2) return n;
+       int maxPoints=2;
+       for(int i=0;i<n;i++)
+       {
+           int[] start=points[i];
+
+           for(int j=i+1;j<n;j++)
+           {
+               int max=2;
+               int[] between=points[j];
+               for(int k=j+1;k<n;k++)
+               {
+                   int[] end=points[k];
+                   if(checkLine(start,between,end))
+                   {
+                       max++;
+                   }
+               }
+               maxPoints=Math.max(maxPoints,max);
+           }
+       }
+       return maxPoints;
+        
+    }
+
+public boolean checkLine(int[] p1,int[] p2,int[] p3)
+{
+    return (p1[0]*(p2[1]-p3[1])) + (p2[0]*(p3[1]-p1[1])) + (p3[0]*(p1[1]-p2[1]))==0;
+}
+
+}
