@@ -1,1 +1,55 @@
 
+class Solution {
+    public boolean isValidSudoku(char[][] board) {
+        //Check duplicate using HashSet
+        Set<String>seen=new HashSet<>();
+        for(int i=0;i<9;i++)
+        {
+            for(int j=0;j<9;j++)
+            {
+                char num=board[i][j];
+                if(num!='.')
+                {
+    if(seen.contains(num+"_R_"+i)||seen.contains(num+"_C_"+j)||seen.contains(num+"_B_"+i/3+"_"+j/3))
+                    {
+                        return false;
+                    }
+                    else{
+                        seen.add(num+"_R_"+i);
+                        seen.add(num+"_C_"+j);
+                        seen.add(num+"_B_"+i/3+"_"+j/3);
+
+                    }
+                }
+            }
+        }
+
+
+
+        // int row[]=new int[9];
+        // int col[]=new int[9];
+        // int box[]=new int[9];
+        // for(int i=0;i<9;i++)
+        // {
+        //     for(int j=0;j<9;j++)
+        //     {
+        //         char c=board[i][j];
+        //         if(c!='.')
+        //         {
+        //            if((row[i]&(1<<(c-'0')))>0)
+        //                 return false; 
+        //             if((col[j]&(1<<(c-'0')))>0)
+        //                 return false; 
+        //             if((box[i/3*3+j/3]&(1<<(c-'0')))>0)
+        //                 return false;
+        //             row[i]|=1<<(c-'0');
+
+        //             col[j]|=1<<(c-'0');
+
+        //             box[i/3*3+j/3]|=1<<(c-'0');
+        //         }
+        //     }
+        // }
+        return true;
+    }
+}
