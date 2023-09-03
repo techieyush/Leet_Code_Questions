@@ -1,0 +1,44 @@
+class Solution {
+    public int[][] merge(int[][] intervals) {
+
+        
+        if(intervals.length<2) return intervals;
+        Arrays.sort(intervals,(a,b) -> a[0]-b[0]);
+        List<int[]>ll=new ArrayList<int[]>();
+        ll.add(intervals[0]);
+        for(int i=1;i<intervals.length;i++)
+        {
+            int[] last=ll.get(ll.size()-1);
+            if(last[1]>=intervals[i][0])
+            {
+                last[0]=Math.min(last[0],intervals[i][0]);
+                last[1]=Math.max(last[1],intervals[i][1]);
+            }
+            else
+            {
+                ll.add(intervals[i]);
+            }
+        }
+
+
+        int nums[][]=new int[ll.size()][2];
+        for(int i=0;i<ll.size();i++)
+        {
+            nums[i]=ll.get(i);
+        }
+
+        return nums;
+        
+    }
+}
+
+// public class Interval{
+//     private int start;
+//     private int end;
+
+//     public Interval(int start,int end)
+//     {
+//         this.start=start;
+//         this.end=end;
+//             }
+// }
