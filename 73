@@ -1,0 +1,33 @@
+class Solution {
+    public void setZeroes(int[][] matrix) {
+        int rows=matrix.length;
+        int col=matrix[0].length;
+        int rowMat1[]=new int[rows];
+        int colMat2[]=new int[col];
+        Arrays.fill(rowMat1,-1);
+        Arrays.fill(colMat2,-1);
+        for(int i=0;i<rows;i++)
+        {
+            for(int j=0;j<col;j++)
+            {
+                if(matrix[i][j]==0)
+                {
+                    rowMat1[i]=0;
+                    colMat2[j]=0;
+                }
+            }
+        }
+        for(int i=0;i<rows;i++)
+        {
+            for(int j=0;j<col;j++)
+            {
+                if(rowMat1[i]==0 || colMat2[j]==0)
+                {
+                    matrix[i][j]=0;
+                }
+            }
+        }
+
+        
+    }
+}
