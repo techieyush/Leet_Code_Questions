@@ -1,0 +1,64 @@
+class RandomizedSet {
+    private int[] set;
+    private int n=0;
+
+    public RandomizedSet() {
+        set=new int[10];
+    }
+    
+    public boolean insert(int val) {
+        int i=n;
+        while(i>0)
+        {
+            if(val==set[--i])
+            {
+                return false;
+            }
+        }
+        set[n++]=val;
+        if(n>=set.length)
+        {
+            int[] newSet=new int[2*n];
+            for(int j=0;j<n;j++)
+            {
+                newSet[j]=set[j];
+            }
+            set=newSet;
+        }
+        return true;
+        
+    }
+    
+    public boolean remove(int val) {
+        int i=n-1;
+        while(i>=0)
+        {
+            if(set[i]==val) break;
+            i--;
+        }
+        if(i==-1) return false;
+        swap(i,--n);
+        return true;
+    }
+       
+       
+    private void swap(int i, int j)
+   {
+       int temp=set[i];
+       set[i]=set[j];
+       set[j]=temp;
+   }
+       
+    
+    public int getRandom() {
+        return set[new Random().nextInt(n)];
+    }
+}
+
+/**
+ * Your RandomizedSet object will be instantiated and called as such:
+ * RandomizedSet obj = new RandomizedSet();
+ * boolean param_1 = obj.insert(val);
+ * boolean param_2 = obj.remove(val);
+ * int param_3 = obj.getRandom();
+ */
